@@ -1,0 +1,13 @@
+stages:
+    - build-img
+  
+build-img-android:
+    image: docker:latest
+    stage: build-img
+    script:
+        - docker build -f DockerfileAndroid -t registry.gitlab.com/akomstudio/testes/test_ci_images:android .
+        - docker push registry.gitlab.com/akomstudio/testes/test_ci_images
+    when: manual
+
+
+    
